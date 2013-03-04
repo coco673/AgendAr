@@ -1,0 +1,257 @@
+body {
+	background-color: AntiqueWhite;
+	text-align : center;
+}
+@font-face {
+    font-family: 'badaboom_bbregular';
+    src: url('../polices/badabb__-webfont.eot');
+    src: url('../polices/badabb__-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../polices/badabb__-webfont.woff') format('woff'),
+         url('../polices/badabb__-webfont.ttf') format('truetype'),
+         url('../polices/badabb__-webfont.svg#badaboom_bbregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*Bandeau*/
+header{
+	position: absolute;
+	top: 0px;
+	left : 0px;
+	width: 100%;
+	height : 100px;
+	background-color : LightSkyBlue;
+	background: linear-gradient(to bottom,LightSkyBlue, AntiqueWhite);
+	padding : 5px -5px 5px 5px;
+}
+header h1, header h2, header #logo{
+	position : absolute;
+	top : 0px;
+	left : 0px;
+	display : inline-block;
+	vertical-align : top;
+}
+
+header h1, header h2{
+	left : 30px;
+	top : 40px;
+	font-family : 'badaboom_bbregular';
+	font-size : 50px;
+	font-weight: normal;
+	letter-spacing : 5px;
+}
+header h2 {
+	top : 110px;
+	font-size : medium;
+	text-decoration : underline;
+	letter-spacing : 2px;
+}
+nav {
+	font-size : 15px;
+}
+nav form{
+	position : absolute ;
+	display : inline-block;
+	right : 10px;
+	top: 5px;
+}
+form label, #submit{
+	font-family : 'badaboom_bbregular';
+	letter-spacing : 3px;
+	text-decoration : underline;
+}
+
+#submit{
+	color : white;
+	background-color : OrangeRed;
+	border-radius : 5px 5px 5px 5px;
+	border : 1px solid black;
+	padding : 3px 3px 3px 3px;
+}
+#submit:hover{
+	color : black;
+	
+}
+
+nav ul{
+	position : absolute ;
+	display : inline-block;
+	right : 10px;
+	top: 20px;
+	font-size : 15px;
+	list-style-type : none;
+}
+
+nav li{
+	display : inline-block;
+	margin-left : 5px;
+	padding : 0px 5px 0px 5px;
+	border : 1px solid black;
+	border-radius : 5px 5px 5px 5px;
+	background-color : OrangeRed;
+}
+
+nav a{
+	color : white;
+	text-decoration : none;
+}
+nav a:hover{
+	color : black;
+	text-decoration : underline;
+}
+
+/*Centre*/
+section {
+	z-index : 1;
+	position: relative;
+	top : 120px;
+	display : inline-block;
+}
+
+#calendrier a, form{
+	display : inline-block;
+}
+#calendrier a{
+	color : white;
+	margin : 0px 10px 0px 10px;
+	text-decoration : none;
+	background-color : red;
+	border-radius : 20px 20px 20px 20px;
+	padding : 0px 5px 0px 5px;
+	border : 1px solid black;
+}
+#calendrier a:hover{
+	color : black;
+	background-color : OrangeRed;
+}
+#calendrier select {
+	border-radius : 5px 5px 5px 5px; 
+	background-color : OrangeRed;
+	-moz-border-radius: 9px 9px 9px 9px;
+	-webkit-border-radius: 9px 9px 9px 9px;
+	
+}
+
+table {
+	border-radius : 10px 10px 0px 0px;
+	border : 1px solid black;
+	background-color : black;
+	box-shadow: 8px 8px 0px #aaa;
+}
+
+th {
+	border-radius : 10px 10px 0px 0px;
+	border-width : 2px;
+	border-style : groove;
+	background-color : white;
+}
+
+th:nth-last-child(-n+2){
+	color : red;
+}
+
+tr:last-child td{
+	border-radius : 0px 0px 10px 10px;
+}
+td {
+	width : 100px;
+	vertical-align : top;
+	text-align : right;
+	border-width : 2px;
+	border-style : groove;
+	background-color : grey;
+}
+
+.currDay{
+	color : green;
+	height : 100px;
+	background-color : LightSteelBlue;
+	transition: 0.5s linear;
+	border-style : double;
+	border-width : 3px;
+}
+.currDay:active{
+	background: linear-gradient(to right,LightGrey,LightSkyBlue);
+	text-decoration : underline;
+	transform : rotateX(360deg);
+	height : 200px;
+	width : 200px;
+}
+
+.jour {
+	height : 100px;
+	background-color : white;
+	transition: 0.5s linear;
+}
+
+.jour:active {
+	background : linear-gradient(to right,white,LightBlue,LightSkyBlue);
+	text-decoration : underline;
+	transform : rotateX(360deg);
+	height : 200px;
+	width : 200px;
+}
+
+.weekend {
+	color : red;
+	height : 100px;
+	background-color : LightGrey;
+	transition: 0.5s linear;
+}
+.weekend:active{
+	background: linear-gradient(to right,LightGrey,LightSkyBlue);
+	text-decoration : underline;
+	transform : rotateX(360deg);
+	height : 200px;
+	width : 200px;
+}
+
+#time{
+	position : relative;
+	border : 1px solid black;
+	background-color : white;
+	border-radius : 0px 0px 10px 10px;
+	box-shadow: 8px 8px 0px #aaa;
+	border-top : none;
+}
+
+#date{
+	background-color : white;
+	border : 1px solid black;
+	border-bottom : none;
+	box-shadow : 8px 8px 0px #aaa;
+}
+
+footer {
+	position : absolute ;
+	bottom : 0%;
+	left : 0%;
+	width : 100%;
+	padding : 5px -5px 5px 5px;
+	height : 15%;
+	background : linear-gradient(to top, LightSkyBlue,AntiqueWhite);
+	z-index : -2;
+}
+
+#formulaireInscription {
+position : relative;
+top : 250px;
+border-style : dashed;
+border-width : 1px;
+text-align : left;
+padding-right : 20px;
+}
+#formulaireInscription input {
+width : 200px;
+height : 20px;
+margin : 5px;
+}
+#formulaireInscription ul {
+list-style-type : none;
+}
+#formulaireInscription label {
+font-family : Arial;
+text-decoration : none;
+}
+
