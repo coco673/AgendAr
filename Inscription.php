@@ -12,8 +12,10 @@
 	include 'php/bandeau/entete.php';
 ?>
 	<div>
-		<form method="POST" action="php/inscription.php5" id="formulaireInscription">
+		<form method="POST" action="php/inscription.php" id="formulaireInscription">
 			<ul>
+				<li><label> Pseudo : </label></li>
+				<li><input type ="text" name="pseudo"></input></li>
 				<li><label> Adresse e-mail : </label></li>
 				<li><input type ="text" name="login"></input></li>
 				<li><label> Mot de passe : </label></li>

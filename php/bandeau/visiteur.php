@@ -1,5 +1,5 @@
 	<nav>		
-		<form method="post" action="php/bdd.php">
+		<form method="post" action="php/connectionUser.php">
 			<label>login:</label>
 			<input type="text" value="" name="login"> 
 			<label>pass:</label>
