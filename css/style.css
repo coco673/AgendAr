@@ -15,7 +15,12 @@ body {
 }
 #aside {
 position : absolute;
-right : 50px;
+left : 0px;
+top : 200px;
+}
+#asideL {
+position : absolute;
+right : 0px;
 top : 200px;
 }
 /*Bandeau*/
