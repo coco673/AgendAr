@@ -21,6 +21,7 @@ session_start();
     }
     ?>
 </p>
+
 	<section id="calendrier">
 		<nav>
 			<a href link=#> Month </a>
@@ -49,17 +50,43 @@ session_start();
 	</section>
 	<div id='aside'>
 		<?php if(isset($_SESSION['pseudo'])) {
-		echo"<table border='1'>
-		<th>mes prochains évents</th>
-		<tr><td>today+1</td></tr>
-		<tr><td>today+2</td></tr>
-		<tr><td>today+3</td></tr>
-		<tr><td>today+4</td></tr>
-		<tr><td>today+5</td></tr>
-		<tr><td>today+6</td></tr>
-		<tr><td>today+7</td></tr>
-		</table>";
-		}?>	
+		$currentDate = new DateTime();
+		include('php/connection.php');
+			echo"<table border='1'>	<th>mes prochains évents</th>";
+		$pseudo = $connection->quote($_SESSION['pseudo']);
+		$requete = $connection->query("SELECT id FROM members WHERE pseudo=$pseudo");
+		while($donnee=$requete->fetch()){
+			$id=$donnee['id'];
+		}
+		$id=$connection->quote($id,PDO::PARAM_INT);
+		$requete = $connection->query("SELECT * FROM Event WHERE user_id=$id AND annee>=$currentDate->format('Y') AND mois>=$currentDate->format('m') AND jour<=(($currentDate->format('d'))+7) AND jour>=$currentDate->format('d')");
+	
+		while($donnee = $requete->fetch()){
+			echo"<tr><td> {$donnee['jour']}/{$donnee['mois']}/{$donnee['annee']} : {$donnee['description']} </td></tr>";
+		}
+		echo"</table>";
+};
+		?>	
+		<script type="text/javascript">
+			var jour = document.getElementById('body');
+			jour.addEventListener("click",function(){;},false);
+		</script>
+		</div>
+		<div id='asideL'>
+		<?php if(isset($_SESSION['pseudo'])) {
+		echo"<form method='POST' action='php/addEvent.php'>
+		<label>Ajouter un evenement</label>
+		<ul>
+		<li><label> Date</label><input type='text' name='date'/>	</li>
+		<li><label> Debut</label><input type='text' name='debut'/>	</li>
+		<li><label> Fin</label><input type='text' name='fin'/>	</li>
+		<li><label> Titre</label><input type='text' name='titre'/>	</li>
+		<li><label> Description</label><textarea type='text' name='description'></textarea></li>
+		</ul>
+		<input type='submit' name='submit'>
+		</form>";
+		}
+		?>
 		</div>
 	<footer>
 	</footer>
