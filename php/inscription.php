@@ -5,9 +5,8 @@ $pass2 = $_POST['pass2'];
 $pays = $_POST['pays'];
 $pseudo = $_POST['pseudo'];
 
-if($login == "" || $pass1 == "" || $pass2=="" || $pays== ""||$pseudo="") {
-	echo "<script type='text/javascript'> window.alert('Tous les champs ne sont pas remplits'); document.location.href='../Inscription.php';</script>";
-} else {
+if(isset($login) || isset($pass1) || isset($pass2) || isset($pays) || isset($pseudo)) {
+	
 include('connection.php');
 $requete = $connection->query('SELECT login,pseudo FROM members');
 $exist = false;
@@ -19,11 +18,11 @@ while($donnee = $requete->fetch()){
 }
 if($exist == false) {
 	if($pass1 == $pass2){
-	$login = $connection->quote($_POST['login']);
-	$pseudo = $connection->quote($_POST['pseudo']);
+	$login = $connection->quote($_POST['login'],PDO::PARAM_STR);
+	$pseudo = $connection->quote($_POST['pseudo'],PDO::PARAM_STR);
 	$pass1 = hash("sha256", $pass1);
-	$pass1 = $connection->quote($pass1);
-	$pays = $connection->quote($_POST['pays']);	
+	$pass1 = $connection->quote($pass1,PDO::PARAM_STR);
+	$pays = $connection->quote($_POST['pays'],PDO::PARAM_STR);	
 
 		$requete = $connection->exec("INSERT INTO members(login, pass, pays, pseudo) VALUES ($login, $pass1, $pays,$pseudo)");
 		header("location: ../index.php");
@@ -33,5 +32,7 @@ if($exist == false) {
 } else {
 	echo "<script type='text/javascript'> alert('login d\351j\340 utilis\351');</script>";
 	}
+} else {
+echo "<script type='text/javascript'> window.alert('Tous les champs ne sont pas remplits'); document.location.href='../Inscription.php';</script>";
 }
 ?>
