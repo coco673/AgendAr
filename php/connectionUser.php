@@ -17,6 +17,10 @@ $_SESSION['pseudo']= $donnee['pseudo'];
 echo "<script type='text/javascript'> document.location.href='../index.php';</script>";
 
 } else {
+$date = new DateTime();
+$ip=$_SERVER['REMOTE_ADDR'];
+error_log($ip." | ".$date->format('d-m-Y')." | ".$date->format('h:i:s')."|\n",3,"./erreur.log");
+
 echo "<script type='text/javascript'> window.alert('Utilisateur ou mot de passe inconnu'); document.location.href='../index.php'</script>";
 }
 

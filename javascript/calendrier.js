@@ -14,7 +14,11 @@ function time() {
 	if(sec < 10){
 		sec = "0" + sec;
 	}
-	time = ""+heure+":"+min+":"+sec;
+	if(isWinter()){
+	time = ""+heure+":"+min+":"+sec +" (Heure d'hiver)";
+	} else { 
+	time = ""+heure+":"+min+":"+sec +" (Heure d'\351t\351)";
+	}
 	document.getElementById('time').innerHTML = time;
 	setTimeout("time()", 1000); 
 }
@@ -25,12 +29,22 @@ var time ="";
 var moisLettres = new Array("Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre");
 var tab_jour=new Array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
 
-
  if(jour<10){
 	jour = "0" + jour;
  }
  time = tab_jour[date.getDay()]+" "+jour+" "+moisLettres[date.getMonth()]+" "+ date.getFullYear();
  return time;
+}
+function isWinter(){
+	var isWinter = false;
+	var timeZone = new Date();
+	 timeZone = timeZone.getTimezoneOffset();
+	if(timeZone == -60){
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 function bissextile(year) {
 	if((year%4 == 0) && (year%100 != 0)){

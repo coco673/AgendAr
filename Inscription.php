@@ -14,14 +14,14 @@
 	<div>
 		<form method="POST" action="php/inscription.php" id="formulaireInscription">
 			<ul>
-				<li><label> Pseudo : </label></li>
-				<li><input type ="text" name="pseudo"></input></li>
 				<li><label> Adresse e-mail : </label></li>
 				<li><input type ="text" name="login"></input></li>
 				<li><label> Mot de passe : </label></li>
 				<li><input type ="password" name="pass1"></input></li>
 				<li><label> Retapez votre mot de passe : </label></li>
 				<li><input type ="password" name="pass2"></input></li>
+				<li><label> Pseudo : </label></li>
+				<li><input type ="text" name="pseudo"></input></li>
 				<li> <label> Votre Pays : </label>
 					<select name="pays">
 						<option value="france">France</option>
